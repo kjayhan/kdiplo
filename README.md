@@ -1,7 +1,3 @@
----
-output: 
-  github_document:
----
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -11,8 +7,7 @@ output:
 
 ## Downloads - GitHub (All Releases)
 [![Github All Releases](https://img.shields.io/github/downloads/kjayhan/kdiplo/total)]()  
-## Contributors
-[![GitHub contributors](https://img.shields.io/github/all-contributors/kjayhan/kdiplo)]()  
+
 ## Hits
 [![HitCount](https://img.shields.io/jsdelivr/gh/hm/kjayhan/kdiplo)]()
 [![R-CMD-check](https://github.com/kjayhan/kdiplo/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kjayhan/kdiplo/actions/workflows/R-CMD-check.yaml)
