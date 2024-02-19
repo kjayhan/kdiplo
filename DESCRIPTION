@@ -1,6 +1,6 @@
 Package: kdiplo
 Title: Converting Korean-language Country Names into iso3c Country Codes
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person("Kadir Jun", "Ayhan", , "k@ayhan.phd", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-8052-1938"))
