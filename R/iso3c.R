@@ -28,6 +28,8 @@ globalVariables(c("country_kr", "iso3c"))
 #' }
 #'
 #' @name iso3c
+#' @export
+#' iso3c() function
 
 
 library(tidyverse)
