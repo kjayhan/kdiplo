@@ -3,8 +3,11 @@
 \name{iso3c}
 \alias{iso3c}
 \title{Converting Korean-language Country Names into iso3c Country Codes}
+\value{
+\code{iso3c()} returns a dataframe with Korean-language country names.
+}
 \description{
-\code{iso3c} Converts Korean country names into iso3c country codes.
+\code{iso3c()} Converts Korean country names into iso3c country codes.
 Korean governmental data often uses country names only in Korean, and
 without universal country codes. Sometimes, Korean-language country names
 are not consistent across different datasets. This function is designed to
@@ -14,10 +17,6 @@ will make it easier to join different kinds of data.
 There can be problems with some countries when used in a country-year
 panel data format, especially for countries that have gone through
 political transitions such as Germany, Serbia, Vietnam, Yemen and so on.
-
-param df A character vector of source dataframe name.
-param country_kr A character vector of the column name that has Korean-language
-country names.
 }
 \examples{
 \dontrun{
@@ -25,4 +24,11 @@ df <- iso3c(df, country_kr)
 head(df)
 }
 
+}
+\author{
+Kadir Jun Ayhan
+
+param df A character vector of source dataframe name.
+param country_kr A character vector of the column name that has Korean-language
+country names.
 }
