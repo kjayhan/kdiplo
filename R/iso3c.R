@@ -16,20 +16,18 @@ globalVariables(c("country_kr", "iso3c"))
 #'
 #' @author Kadir Jun Ayhan
 #'
-#' param df A character vector of source dataframe name.
-#' param country_kr A character vector of the column name that has Korean-language
+#' @param df A character vector of source dataframe name.
+#' @param country_kr A character vector of the column name that has Korean-language
 #' country names.
-
-
+#'
+#' @keywords iso3c
+#' @export
+#' @name iso3c
 #' @examples
 #' \dontrun{
 #' df <- iso3c(df, country_kr)
 #' head(df)
 #' }
-#'
-#' @name iso3c
-#' @export
-#' iso3c() function
 
 
 library(tidyverse)

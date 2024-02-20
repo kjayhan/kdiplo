@@ -3,6 +3,12 @@
 \name{iso3c}
 \alias{iso3c}
 \title{Converting Korean-language Country Names into iso3c Country Codes}
+\arguments{
+\item{df}{A character vector of source dataframe name.}
+
+\item{country_kr}{A character vector of the column name that has Korean-language
+country names.}
+}
 \value{
 \code{iso3c()} returns a dataframe with Korean-language country names.
 }
@@ -23,12 +29,8 @@ political transitions such as Germany, Serbia, Vietnam, Yemen and so on.
 df <- iso3c(df, country_kr)
 head(df)
 }
-
 }
 \author{
 Kadir Jun Ayhan
-
-param df A character vector of source dataframe name.
-param country_kr A character vector of the column name that has Korean-language
-country names.
 }
+\keyword{iso3c}
