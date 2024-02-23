@@ -5,12 +5,12 @@
 
 <!-- badges: start -->
 
-## Downloads - GitHub (All Releases)
+<!-- ## Downloads - GitHub (All Releases)
 [![Github All Releases](https://img.shields.io/github/downloads/kjayhan/kdiplo/total)]()  
 
 ## Hits
 [![HitCount](https://img.shields.io/jsdelivr/gh/hm/kjayhan/kdiplo)]()
-[![R-CMD-check](https://github.com/kjayhan/kdiplo/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kjayhan/kdiplo/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/kjayhan/kdiplo/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kjayhan/kdiplo/actions/workflows/R-CMD-check.yaml) -->
 <!-- badges: end -->
 
 I will share Korean diplomatic datasets and tools to analyze the data in `{kdiplo}` package. Currently, the only function here is `iso3c()` which allows you to convert Korean-language country names to ISO 3166-1 alpha-3 codes. I will add more functions and datasets in the future.
