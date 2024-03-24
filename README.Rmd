@@ -1,0 +1,70 @@
+---
+output: github_document
+always_allow_html: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# `kdiplo`: Datasets and Tools to Analyze Korean Diplomacy
+
+<!-- badges: start -->
+
+<!-- ## Downloads - GitHub (All Releases)
+[![Github All Releases](https://img.shields.io/github/downloads/kjayhan/kdiplo/total)]()  
+
+## Hits
+[![HitCount](https://img.shields.io/jsdelivr/gh/hm/kjayhan/kdiplo)]()
+[![R-CMD-check](https://github.com/kjayhan/kdiplo/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kjayhan/kdiplo/actions/workflows/R-CMD-check.yaml) -->
+<!-- badges: end -->
+
+I will share Korean diplomatic datasets and tools to analyze the data in `{kdiplo}` package. Currently, the only function here is `iso3c()` which allows you to convert Korean-language country names to ISO 3166-1 alpha-3 codes. I will add more functions and datasets in the future.
+
+Let me know if there are additional Korean-language country names out there that are not included in the dataset. I will add them to the dataset.
+
+
+## Datasets
+
+```{r, echo=FALSE}
+
+table <- tibble::tribble(
+  ~Dataset, ~Contents, ~Status, ~Uploaded,
+  "Korean presidents' high-level diplomatic visits", "Korean presidents' bilateral, multilateral, and informal diplomatic visits between 1948 and 2023, details about the visits including dates, reasons, type of visit etc.", "Complete", "Coming soon",
+  "Inward high-level diplomatic visits", "Foreign leaders’ bilateral, multilateral, and informal diplomatic visits to Korea between 2000 and 2023, details about the visits including dates, the visitor's office and status at home etc.", "Complete", "Coming soon",
+  "Other Korean high-level diplomatic visits", "Korean prime ministers and foreign ministers' bilateral, multilateral, and informal diplomatic visits between 2000 and 2023", "Complete", "Coming soon",
+  "Diplomatic ties", "The status of South and North Korea’s diplomatic ties with other countries in panel data format", "Complete", "Coming soon",
+  "Korean diplomatic missions abroad", "Korean diplomatic missions' (embassies and consulates) geolocations", "Complete", "Coming soon",
+  "Overseas Koreans", "The numbers of overseas Koreans’ populations in other countries in panel data format", "Complete", "Coming soon",
+  "Trade and aid", "Korea’s trade with and aid to other countries", "Complete", "Coming soon",
+  "Korean presidents' diplomatic speeches", "Korean presidents’ speeches in diplomatic meetings in original language of the speech, official translations (if there is any), and make AI translation options based on user inquiry", "Pending funding", "Unavailable",
+  "News coverage about Korea", "News coverage about Korea in the United States before, during, and after diplomatic visits", "Pending funding", "Unavailable",
+  "Diplomatic white papers text", "Korean diplomatic white papers as searchable text corpus", "Pending funding", "Unavailable"
+)
+
+
+table |> 
+  kableExtra::kbl(
+      format = "pipe",
+      booktabs = TRUE,
+      longtable = TRUE,
+      #col.names = c(""),
+      row.names = FALSE,
+      align = "cc") |>
+    kableExtra::kable_styling(full_width = F, "striped") 
+```
+
+
+## Installation
+
+You can install the `kdiplo` package from [GitHub](https://github.com/) with:
+
+``` r
+devtools::install_github("kjayhan/kdiplo")
+```
+
+## How to cite this package?
+
+When using the `kdiplo` package please cite the following:
+
+-   Ayhan, Kadir Jun (2024). kdiplo: Datasets and Tools to Analyze Korean Diplomacy. R package version 0.0.1.
