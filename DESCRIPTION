@@ -1,5 +1,5 @@
 Package: kdiplo
-Title: Converting Korean-language Country Names into iso3c Country Codes
+Title: Korean Diplomacy Data Hub: A One-Stop Public Repository for Datasets on Korean Diplomacy
 Version: 0.0.1
 Authors@R: 
     c(person(given = "Kadir Jun", 
@@ -7,7 +7,7 @@ Authors@R:
     email = "k@ayhan.phd", 
     role = c("aut", "cre"),
     comment = c(ORCID = "0000-0001-8052-1938")))
-Description: Converts Korean country names into iso3c country codes. Korean governmental data often uses country names only in Korean, and without universal country codes. Sometimes, Korean-language country names are not consistent across different datasets. This function is designed to assign universal iso3c country codes to Korean-language country names that will make it easier to join different kinds of data.
+Description: Several novel datasets on Korean diplomacy, mainly focusing on high-level diplomatic visits (both outgoing and incoming), their formats (bilateral, multilateral, informal), nature (such as state visits), purposes (economic, security, etc.), timelines, and the conveners in multilateral contexts among others.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
