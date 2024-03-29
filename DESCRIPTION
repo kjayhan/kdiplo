@@ -1,6 +1,6 @@
 Package: kdiplo
 Title: Korean Diplomacy Data Hub: A One-Stop Public Repository for Datasets on Korean Diplomacy
-Version: 0.0.1.9000
+Version: 0.0.1.9001
 Authors@R: 
     c(person(given = "Kadir Jun", 
     family = "Ayhan", 
