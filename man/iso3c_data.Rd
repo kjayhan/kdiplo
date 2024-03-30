@@ -8,7 +8,7 @@
 A data frame with 2 variables:
 \describe{
 \item{country_kr}{A character vector of Korean-language country names.}
-\item{iso3c}{A character vector of iso3c country codes.}
+\item{iso3c}{A character vector of ISO 3166-1 alpha-3 (iso3c) country codes.}
 }
 }
 \usage{
