@@ -36,7 +36,8 @@ table <- tibble::tribble(
   "Diplomatic ties", "The status of South and North Korea’s diplomatic ties with other countries in panel data format", "Complete", "Coming soon",
   "Korean diplomatic missions abroad", "Korean diplomatic missions' (embassies and consulates) geolocations", "Complete", "Coming soon",
   "Overseas Koreans", "The numbers of overseas Koreans’ populations in other countries in panel data format", "Complete", "Coming soon",
-  "Trade and aid", "Korea’s trade with and aid to other countries", "Complete", "Coming soon",
+  "Trade", "Korea’s export to and import from respective countries in panel data format", "Complete", "Uploaded",
+  "Foreign aid", "Korea’s foreign aid to respective countries in panel data format", "Complete", "Coming soon",
   "Korean presidents' diplomatic speeches", "Korean presidents’ speeches in diplomatic meetings in original language of the speech, official translations (if there is any), and make AI translation options based on user inquiry", "Pending funding", "Unavailable",
   "News coverage about Korea", "News coverage about Korea in the United States before, during, and after diplomatic visits", "Pending funding", "Unavailable",
   "Diplomatic white papers text", "Korean diplomatic white papers as searchable text corpus", "Pending funding", "Unavailable"
