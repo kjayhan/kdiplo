@@ -54,4 +54,8 @@
 #' @docType data
 #' @keywords datasets
 #' @name trade_data
+#'
+#' @source \url{https://kosis.kr/statHtml/statHtml.do?orgId=360&tblId=DT_1R11006_FRM101&conn_path=I3}
+#' @source \url{https://correlatesofwar.org/data-sets/bilateral-trade/}
+#'
 "trade_data"

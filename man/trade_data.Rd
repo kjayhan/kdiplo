@@ -36,6 +36,11 @@ to each country as recorded by the Correlates of War project.}
 from each country as recorded by the Correlates of War project.}
 }
 }
+\source{
+\url{https://kosis.kr/statHtml/statHtml.do?orgId=360&tblId=DT_1R11006_FRM101&conn_path=I3}
+
+\url{https://correlatesofwar.org/data-sets/bilateral-trade/}
+}
 \usage{
 trade_data
 }
