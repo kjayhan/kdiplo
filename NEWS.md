@@ -1,4 +1,4 @@
-# kdiplo (development version)
+# kdiplo 0.1.1
 
 # kdiplo 0.1.0
 
