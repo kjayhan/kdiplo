@@ -1,7 +1,7 @@
-globalVariables(c("country_kr", "iso3c"))
+globalVariables(c("country_kr", "iso3c_kr"))
 #' Converting Korean-language Country Names into iso3c Country Codes
 #'
-#' @description \code{iso3c()} Converts Korean country names into iso3c country codes.
+#' @description \code{iso3c_kr()} Converts Korean country names into iso3c country codes.
 #' Korean governmental data often uses country names only in Korean, and
 #' without universal country codes. Sometimes, Korean-language country names
 #' are not consistent across different datasets. This function is designed to
@@ -12,7 +12,7 @@ globalVariables(c("country_kr", "iso3c"))
 #' panel data format, especially for countries that have gone through
 #' political transitions such as Germany, Serbia, Vietnam, Yemen and so on.
 #'
-#' @return \code{iso3c()} returns a dataframe with Korean-language country names.
+#' @return \code{iso3c_kr()} returns a dataframe with Korean-language country names.
 #'
 #' @author Kadir Jun Ayhan
 #'
@@ -20,19 +20,19 @@ globalVariables(c("country_kr", "iso3c"))
 #' @param country_kr A character vector of the column name that has Korean-language
 #' country names.
 #'
-#' @keywords iso3c
+#' @keywords iso3c_kr
 #' @export
-#' @name iso3c
+#' @name iso3c_kr
 #' @examples
 #' \dontrun{
-#' df <- iso3c(df, country_kr)
+#' df <- iso3c_kr(df, country_kr)
 #' head(df)
 #' }
 
 
 library(tidyverse)
 
-iso3c <- function(df, country_kr) {
+iso3c_kr <- function(df, country_kr) {
   iso3c_data <- kdiplo::iso3c_data
   df <- df %>%
     dplyr::left_join(iso3c_data, by = stats::setNames("country_kr", country_kr))

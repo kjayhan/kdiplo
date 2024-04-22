@@ -131,10 +131,25 @@ Coming soon
 </tr>
 <tr>
 <td style="text-align:center;">
-Trade and aid
+Trade
 </td>
 <td style="text-align:center;">
-Korea’s trade with and aid to other countries
+Korea’s export to and import from respective countries in panel data
+format
+</td>
+<td style="text-align:center;">
+Complete
+</td>
+<td style="text-align:center;">
+Uploaded
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Foreign aid
+</td>
+<td style="text-align:center;">
+Korea’s foreign aid to respective countries in panel data format
 </td>
 <td style="text-align:center;">
 Complete
@@ -205,4 +220,4 @@ devtools::install_github("kjayhan/kdiplo")
 When using the `kdiplo` package please cite the following:
 
 - Ayhan, Kadir Jun (2024). kdiplo: Datasets and Tools to Analyze Korean
-  Diplomacy. R package version 0.0.1.
+  Diplomacy. R package version ‘0.1.1.9000’
