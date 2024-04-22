@@ -21,7 +21,7 @@
 #' such as export and import values by country and year, along with total export and import figures.
 #' @return Returns a dataframe of Korea's export and import in a country-year format.
 #'
-#' @format A data frame with 11 variables:
+#' @format A data frame with 12 variables:
 #' \describe{
 #'   \item{iso3c}{A character vector of ISO 3166-1 alpha-3 country codes.}
 #'   \item{country}{A character vector of country names corresponding to the
@@ -50,6 +50,7 @@
 #'   to each country as recorded by the Correlates of War project.}
 #'   \item{import_cow}{A numeric vector representing import values to Korea
 #'   from each country as recorded by the Correlates of War project.}
+#'   \item{updated_at}{A date vector indicating the last update date of the data.}
 #' }
 #' @docType data
 #' @keywords datasets

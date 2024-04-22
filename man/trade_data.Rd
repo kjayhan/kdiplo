@@ -5,7 +5,7 @@
 \alias{trade_data}
 \title{Korea's Trade Data}
 \format{
-A data frame with 11 variables:
+A data frame with 12 variables:
 \describe{
 \item{iso3c}{A character vector of ISO 3166-1 alpha-3 country codes.}
 \item{country}{A character vector of country names corresponding to the
@@ -34,6 +34,7 @@ from each country as recorded by the Korean Statistical Information Service.}
 to each country as recorded by the Correlates of War project.}
 \item{import_cow}{A numeric vector representing import values to Korea
 from each country as recorded by the Correlates of War project.}
+\item{updated_at}{A date vector indicating the last update date of the data.}
 }
 }
 \source{
