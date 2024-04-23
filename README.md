@@ -220,4 +220,4 @@ devtools::install_github("kjayhan/kdiplo")
 When using the `kdiplo` package please cite the following:
 
 - Ayhan, Kadir Jun (2024). kdiplo: Datasets and Tools to Analyze Korean
-  Diplomacy. R package version ‘0.1.1.9001’
+  Diplomacy. R package version ‘0.1.1.9003’
