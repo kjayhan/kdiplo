@@ -1,9 +1,13 @@
 ---
 title: "iso3c_kr Vignette"
-output: rmarkdown::html_vignette
+author: "Kadir Jun Ayhan"
+date: "2024-04-23"
+format: 
+  html:
+    toc: true
 vignette: >
-  %\VignetteIndexEntry{iso3c_kr-vignette}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Vignette's Title}
+  %\VignetteEngine{quarto::html}
   %\VignetteEncoding{UTF-8}
 ---
 
