@@ -23,10 +23,9 @@ LazyData: true
 Suggests:
     rmarkdown,
     knitr,
-    quarto,
     spelling,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Language: en-US
 VignetteBuilder: 
-    quarto
+    knitr

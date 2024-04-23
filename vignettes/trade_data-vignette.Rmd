@@ -1,16 +1,14 @@
 ---
-title: "Korea's Trade Data"
+title: "Korea's Trade Data Vignette"
 author: "Kadir Jun Ayhan"
-date: "2024-04-23"
-output: quarto::html_document
-format: 
-  html:
-    toc: true
+date: "2024-04-24"
+output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette's Title}
-  %\VignetteEngine{quarto::html}
+  %\VignetteIndexEntry{Korea's Trade Data Vignette}
+  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+
 ```{r setup, include=FALSE, echo=FALSE} 
 knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = FALSE) 
 
@@ -22,12 +20,11 @@ library(ggrepel)
 library(ggbump)
 ```
 
-Since the foundation of the Republic of Korea in 1948, the economy has been one of the two pillars of Korean diplomacy, alongside security.[^1] Indeed, the country's trade has virtually always been over 50% of its GDP since 1970s, reaching over 100% in 2010s (see [@fig-trade_gdp]).
+Since the foundation of the Republic of Korea in 1948, the economy has been one of the two pillars of Korean diplomacy, alongside security.[^1] Indeed, the country's trade has virtually always been over 50% of its GDP since 1970s, reaching over 100% in 2010s.
 
 [^1]: Korea added "public diplomacy" as a [third pillar of diplomacy in 2010](https://ayhan.phd/research/chapters/2016%20Introduction%20-%20Korea's%20PD/).
 
-::: {#fig-trade_gdp}
-```{r}
+```{r trade_gdp, fig.cap = "Trade as % of GDP in Korea", out.width="900"}
 ##| label: fig-trade_gdp
 ##| fig-cap: Trade as % of GDP in Korea
 
@@ -52,8 +49,6 @@ trade_gdp %>% ggplot(aes(year, trade_gdp)) +
 
 Source: [WDI](https://github.com/vincentarelbundock/WDI)
 
-Trade as % of GDP in Korea
-:::
 
 Therefore, Korea's trade constitute an important data source for studies on Korean diplomacy. In this blog post, I will explore the trade data in the [`kdiplo`](https://github.com/kjayhan/kdiplo) R package. There are two main sources for the data.
 
@@ -85,10 +80,7 @@ trade %<>% mutate(trade = export + import,
 
 Let's visualize the trade volume over time.
 
-```{r}
-#| label: fig-trade_volume
-#| fig-cap: "Korea's Trade Volume (in billion $)"
-
+```{r trade_volume, fig.cap = "Korea's Trade Volume (in billion $)", out.width="900"}
 
 trade_years <- trade %>% group_by(year) %>%
   summarise(total_trade_group_by = sum(trade, na.rm = T),
@@ -114,11 +106,9 @@ trade %>% ggplot(aes(year, total_trade_group_by/1e9)) +
   annotate("text", x = 1988, y = 500, label = "Democratization", color = "black")
 ```
 
-There is this myth that Korea's economic development was all thanks to Park Chung-hee's economic development plans which built on [export-led industrialization](https://www.much.go.kr/en/contents.do?fid=03&cid=03_7). Although we cannot deny his influence on Korea's industrialization and economic growth (see [@fig-gdp_growth]), but Korea's trade volume has grown exponentially since the 1990s following the country's liberalization and democratization.
+There is this myth that Korea's economic development was all thanks to Park Chung-hee's economic development plans which built on [export-led industrialization](https://www.much.go.kr/en/contents.do?fid=03&cid=03_7). Although we cannot deny his influence on Korea's industrialization and economic growth, but Korea's trade volume has grown exponentially since the 1990s following the country's liberalization and democratization.
 
-
-::: {#fig-gdp_growth}
-```{r}
+```{r fig-gdp_growth, fig.cap = "Korea's GDP Growth Rate", out.width="900"}
 ##| label: fig-gdp_growth
 ##| fig-cap: "Korea's GDP Growth Rate"
 
@@ -137,8 +127,6 @@ trade_gdp %>% ggplot(aes(year, gdp_growth)) +
 
 Source: [WDI](https://github.com/vincentarelbundock/WDI)
 
-Korea's GDP Growth Rate
-:::
 
 # Trade Dependence
 
@@ -146,9 +134,8 @@ We live at an age of increasing great power rivalry in the Indo-Pacific region, 
 
 Let's visualize Korea's trade dependence over time.
 
-```{r}
-#| label: fig-trade_dependence
-#| fig-cap: "Korea's Trade Dependence with China, US, Japan, and Vietnam"
+```{r fig-trade_dependence, fig.cap = "Korea's Trade Dependence with China, US, Japan, and Vietnam", out.width="900"}
+
 trade %<>% mutate(trade_dep = trade / total_trade_group_by,
                   label = ifelse(year == max(year), iso3c, NA))
 
@@ -169,9 +156,7 @@ trade %>% filter(iso3c %in% c("JPN", "CHN", "USA", "VNM")) %>% #, "SAU", "HKG", 
 
 China has surpassed Japan and the United States as Korea's largest trading partner since the mid-2000s. Before COVID-19, China's share in Korea's trade reached 25%, declining since then to just above 20%, but still remaining as the largest trading partner. The US's share in Korea's trade is around 15%, while Japan and Vietnam's share has been 6% each. The following is the ranking of Korea's trading partners since its foundation. Below, I visualize the rankings of Korea's trading partners over time.
 
-```{r}
-#| label: fig-trade_ranking
-#| fig-cap: "Ranking of Korea's Trading Partners: 1940s to 2020s"
+```{r fig-trade_ranking, fig.cap = "Ranking of Korea's Trading Partners: 1940s to 2020s", out.width= "900"}
 
 
 # give trade data countries rankings based on trade_dep.
