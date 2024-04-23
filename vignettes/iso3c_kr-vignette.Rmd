@@ -1,0 +1,142 @@
+---
+title: "iso3c_kr Vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{iso3c_kr-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE, echo=FALSE} 
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = FALSE) 
+
+library(kdiplo)
+library(tidyverse)
+library(magrittr)
+```
+
+In my research, I often work with country-year data from Korean sources, including data on diplomatic visits, trade, aid and so on. One of the fundamental difficulties I have had is the lack of universal country codes across different datasets. Further complicating matters is the inconsistency of country names in these datasets. For example, Democratic Republic of the Congo has five different spellings across different official sources that I could find: `r paste(unique(kdiplo::iso3c_data$country_kr[kdiplo::iso3c_data$iso3c == "COD"]), collapse = ", ")`.
+
+To address this issue, I have created a function in my `kdiplo` package that converts Korean country names into ISO 3166-1 alpha-3 (*iso3c*) country codes. This function, `iso3c_kr`, is designed to assign universal iso3c country codes to Korean-language country names that will make it easier to join different kinds of data.
+
+One still needs to check if the output is correct, especially for countries that have gone through political transitions such as Germany, Yugoslavia, Russia, Vietnam, Yemen and so on.
+
+Sometimes the Korean government sources have overlapping data for Yugoslavia and Serbia, for example. In such cases, one needs to check the data and make sure that the data is correct.
+
+For example, the following is sample Korean trade data from [Korean Statistical Information Service (KOSIS)](https://kosis.kr/statHtml/statHtml.do?orgId=360&tblId=DT_1R11006_FRM101&conn_path=I3):
+
+```{r}
+trade <- readxl::read_xlsx("../../korea_visits/data/kosis_trade_240330.xlsx")
+
+trade[533:538,c(1,57:62)] %>% gt::gt()
+
+```
+
+And, the following is sample Korean aid data from [Korea's ODA portal](https://stats.odakorea.go.kr/portal/odakorea/detail):
+
+```{r}
+
+aid <- readxl::read_xlsx("../../covid determinants 220818/data/korea_total_aid_2019_230709.xlsx")
+
+aid %<>% select(1:5)
+
+aid[c(50, 150, 250, 350, 450),] %>% gt::gt()
+
+```
+
+Wide format is quite common in official Korean data sources. Trade data is in wide format. Before using the `iso3c_kr` function, let's first transform the trade data into a long (country-year) format to make it in the same format as the aid data. This will make joining the two datasets more feasible.
+
+```{r}
+export <- trade
+import <- trade
+
+export %<>% select(-`...63`)
+export_long <- export %>% pivot_longer(4:62, names_to = "year", values_to = "export_kosis")
+
+export_long %<>% set_names(c("country_kr", "type", "unit", "year", "export_kosis"))
+
+
+export_long %<>% filter(type == "수출액[천달러]") %>% 
+  mutate(export_kosis = as.numeric(export_kosis) * 1000,
+         year = parse_number(year)) %>%
+  select(-type, -unit)
+
+
+
+
+
+import %<>% select(-`...63`)
+import_long <- import %>% pivot_longer(4:62, names_to = "year", values_to = "import_kosis")
+
+import_long %<>% set_names(c("country_kr", "type", "unit", "year", "import_kosis"))
+
+
+import_long %<>% filter(type == "수입액[천달러]") %>% 
+  mutate(import_kosis = as.numeric(import_kosis) * 1000,
+         year = parse_number(year)) %>%
+  select(-type, -unit)
+
+trade <- export_long %>% left_join(import_long, by = c("country_kr", "year"))
+```
+
+Using the `iso3c_kr` function, we can simply convert Korean country names into iso3c country codes. For example, the following is the output of the `iso3c_kr` function for the Korean trade data:
+
+```{r}
+trade <- iso3c_kr(trade, "country_kr") #you copy paste the column name that has the Korean country names.
+
+
+trade[c(50, 150, 250, 350, 450, 550), c(1,5, 2:4)] %>% gt::gt()
+
+```
+
+We see that in this example, "계" (*gyae*) did not get any iso3c country code. This is because the `iso3c_kr` function could not find the iso3c country code for this entry. This is because, it is not a country name. "계" means total. It is best to check the data to see which entries did not get an iso3c code.
+
+```{r}
+missing_iso3c <- trade %>% filter(is.na(iso3c)) %>% pull(country_kr) %>% unique()
+
+paste(missing_iso3c, collapse = ", ")
+
+```
+
+They mean "total", "IMF", "other", and "other countries" in Korean. In other words, we are not missing any countries, which is good.
+
+Now let's convert the Korean country names in the aid data into iso3c country codes:
+
+```{r}
+
+
+aid %<>% set_names(c("country_kr", "sector", "no_of_projects", "aid_usd", "aid_krw"))
+
+aid <- iso3c_kr(aid, "country_kr") #you copy paste the column name that has the Korean country names.
+
+
+aid[c(50, 150, 250, 350, 450, 550),c(1, 6, 2:5)] %>% gt::gt()
+
+```
+
+Once you know the iso3c country codes, you can get the English country names, or other country codes (such as Correlates of War country codes) using the `countrycode` package, for example.
+
+```{r}
+trade <- trade %>% mutate(country_name = countrycode::countrycode(iso3c, origin = "iso3c", destination = "country.name"))
+
+trade[c(50, 150, 250, 350, 450, 550),c(1, 5, 6, 2:4)] %>% gt::gt()
+
+```
+
+More importantly, this function allows users to be able to join different datasets that have Korean country names. For example, one can join the trade data with the aid data using the iso3c country codes. In this example, I will join the trade data with the aid data using the iso3c country codes.
+
+```{r}
+# now that I think about it, this sample data is only 2019.
+
+aid$year <- 2019
+
+trade_aid <- trade %>% left_join(aid, by = c("iso3c", "year"), suffix = c("", "_aid"))
+
+trade_aid %>%
+  filter(year == 2019 & !is.na(iso3c)) %>%
+  slice(c(50, 150, 250, 350, 450, 550)) %>%
+  select(c(1, 5, 6, 2:4, 8, 10)) %>%
+  gt::gt()
+```
+
+Voilà! Now we have a dataset that has both trade and aid data, both of which originally did not have consistent country names or country codes. I plan to add warning messages to the `iso3c_kr` function to make it easier to spot potential issues with the conversion of Korean country names. I will continue to update the Korean country name dataset in the `kdiplo` package as I come across new data sources. Feel free to report unavailable country names in the `iso3c_kr` function to me using the [issue tracker on Github](https://github.com/kjayhan/kdiplo/issues).
