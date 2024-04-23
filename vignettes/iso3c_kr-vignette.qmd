@@ -2,6 +2,7 @@
 title: "iso3c_kr Vignette"
 author: "Kadir Jun Ayhan"
 date: "2024-04-23"
+output: quarto::html_document
 format: 
   html:
     toc: true
