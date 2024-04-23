@@ -18,11 +18,12 @@ Depends:
 Imports:
     dplyr,
     magrittr,
-    stats
+    stats,
 LazyData: true
-Suggests: 
-    knitr,
+Suggests:
     rmarkdown,
+    knitr,
+    quarto,
     spelling,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

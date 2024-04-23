@@ -9,9 +9,9 @@
 [![R-CMD-check](https://github.com/kjayhan/kdiplo/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kjayhan/kdiplo/actions/workflows/R-CMD-check.yaml) -->
 <!-- badges: end -->
 
-I will share Korean diplomatic datasets and tools to analyze the data in
-`{kdiplo}` package. Currently, the only function here is `iso3c()` which
-allows you to convert Korean-language country names to ISO 3166-1
+I share Korean diplomatic datasets and tools to analyze the data in
+`{kdiplo}` package. Currently, the only function here is `iso3c_kr()`
+which allows you to convert Korean-language country names to ISO 3166-1
 alpha-3 codes. I will add more functions and datasets in the future.
 
 Let me know if there are additional Korean-language country names out
