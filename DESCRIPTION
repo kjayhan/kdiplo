@@ -12,7 +12,8 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
-URL: https://github.com/kjayhan/kdiplo
+URL: https://github.com/kjayhan/kdiplo, https://kdiplo.com, https://ayhan.phd
+BugReports: https://github.com/kjayhan/kdiplo/issues
 Depends: 
     R (>= 2.10)
 Imports:

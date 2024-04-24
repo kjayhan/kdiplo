@@ -41,7 +41,15 @@ And, the following is sample Korean aid data from [Korea's ODA portal](https://s
 
 aid <- read_xlsx("../../covid determinants 220818/data/korea_total_aid_2019_230709.xlsx")
 
+
 aid %<>% select(1:5)
+
+
+aid %<>% set_names(c("country_kr", "sector", "no_of_projects", "aid_usd", "aid_krw"))
+
+# now that I think about it, this sample data is only 2019.
+
+aid$year <- 2019
 
 aid[c(50, 150, 250, 350, 450),] %>% gt::gt()
 
@@ -84,9 +92,8 @@ trade <- export_long %>% left_join(import_long, by = c("country_kr", "year"))
 
 Using the `iso3c_kr` function, we can simply convert Korean country names into iso3c country codes. For example, the following is the output of the `iso3c_kr` function for the Korean trade data:
 
-```{r}
+```{r, echo=TRUE}
 trade <- iso3c_kr(trade, "country_kr") #you copy paste the column name that has the Korean country names.
-
 
 trade[c(50, 150, 250, 350, 450, 550), c(1,5, 2:4)] %>% gt::gt()
 
@@ -105,16 +112,11 @@ They mean "total", "IMF", "other", and "other countries" in Korean. In other wor
 
 Now let's convert the Korean country names in the aid data into iso3c country codes:
 
-```{r}
-
-
-aid %<>% set_names(c("country_kr", "sector", "no_of_projects", "aid_usd", "aid_krw"))
+```{r, echo=TRUE}
 
 aid <- iso3c_kr(aid, "country_kr") #you copy paste the column name that has the Korean country names.
 
-
 aid[c(50, 150, 250, 350, 450, 550),c(1, 6, 2:5)] %>% gt::gt()
-
 ```
 
 Once you know the iso3c country codes, you can get the English country names, or other country codes (such as Correlates of War country codes) using the `countrycode` package, for example.
@@ -128,11 +130,7 @@ trade[c(50, 150, 250, 350, 450, 550),c(1, 5, 6, 2:4)] %>% gt::gt()
 
 More importantly, this function allows users to be able to join different datasets that have Korean country names. For example, one can join the trade data with the aid data using the iso3c country codes. In this example, I will join the trade data with the aid data using the iso3c country codes.
 
-```{r}
-# now that I think about it, this sample data is only 2019.
-
-aid$year <- 2019
-
+```{r, echo=TRUE}
 trade_aid <- trade %>% left_join(aid, by = c("iso3c", "year"), suffix = c("", "_aid"))
 
 trade_aid %>%

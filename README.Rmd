@@ -19,9 +19,7 @@ knitr::opts_chunk$set(echo = TRUE)
 [![R-CMD-check](https://github.com/kjayhan/kdiplo/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kjayhan/kdiplo/actions/workflows/R-CMD-check.yaml) -->
 <!-- badges: end -->
 
-I share Korean diplomatic datasets and tools to analyze the data in `{kdiplo}` package. Currently, the only function here is `iso3c_kr()` which allows you to convert Korean-language country names to ISO 3166-1 alpha-3 codes. I will add more functions and datasets in the future.
-
-Let me know if there are additional Korean-language country names out there that are not included in the dataset. I will add them to the dataset.
+I share Korean diplomatic datasets and tools to analyze the data in `{kdiplo}` package. Currently, the only function here is `iso3c_kr()` which allows you to convert Korean-language country names to ISO 3166-1 alpha-3 codes. I will add more functions and datasets in the future. [Let me know](https://github.com/kjayhan/kdiplo/issues) if there are additional Korean-language country names out there that are not included in the dataset. I will add them to the dataset.
 
 
 ## Datasets
