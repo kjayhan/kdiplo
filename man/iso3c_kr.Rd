@@ -10,7 +10,7 @@
 country names.}
 }
 \value{
-\code{iso3c_kr()} returns a dataframe with Korean-language country names.
+\code{iso3c_kr()} Converts Korean country names into iso3c country codes.
 }
 \description{
 \code{iso3c_kr()} Converts Korean country names into iso3c country codes.

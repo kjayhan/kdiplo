@@ -12,7 +12,7 @@ globalVariables(c("country_kr", "iso3c_kr"))
 #' panel data format, especially for countries that have gone through
 #' political transitions such as Germany, Serbia, Vietnam, Yemen and so on.
 #'
-#' @return \code{iso3c_kr()} returns a dataframe with Korean-language country names.
+#' @return \code{iso3c_kr()} Converts Korean country names into iso3c country codes.
 #'
 #' @author Kadir Jun Ayhan
 #'
