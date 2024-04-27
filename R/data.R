@@ -50,6 +50,22 @@
 #'   to each country as recorded by the Correlates of War project.}
 #'   \item{import_cow}{A numeric vector representing import values to Korea
 #'   from each country as recorded by the Correlates of War project.}
+#'   \item{export_cons_2015}{A numeric vector representing the 2015 constant USD value of exports from
+#'   Korea to the respective countries in each year. The figures are
+#'   inflation-adjusted values of the `export` variable. Inflation adjustment is
+#'   done using US Census Bureau's R-CPI-U-RS price series.}
+#'   \item{import_cons_2015}{A numeric vector representing the 2015 constant USD value of imports to
+#'   Korea from the respective countries in each year. The figures are
+#'   inflation-adjusted values of the `import` variable. Inflation adjustment is
+#'   done using US Census Bureau's R-CPI-U-RS price series.}
+#'   \item{total_export_cons_2015}{A numeric vector representing the 2015
+#'   constant USD value of Korea's total exports in each year. The figures are
+#'   inflation-adjusted values of the `total_export` variable. Inflation adjustment is
+#'   done using US Census Bureau's R-CPI-U-RS price series.}
+#'   \item{total_import_cons_2015}{A numeric vector representing the 2015
+#'   constant USD value of Korea's total imports in each year. The figures are
+#'   inflation-adjusted values of the `total_import` variable. Inflation adjustment is
+#'   done using US Census Bureau's R-CPI-U-RS price series.}
 #'   \item{updated_at}{A date vector indicating the last update date of the data.}
 #' }
 #' @docType data

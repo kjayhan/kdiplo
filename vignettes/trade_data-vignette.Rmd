@@ -74,18 +74,18 @@ glimpse(trade)
 Let's mutate the trade volume as the sum of exports and imports, and the total trade volume as the sum of total exports and total imports.
 
 ```{r}
-trade %<>% mutate(trade = export + import,
-                  total_trade = total_export + total_import)
+trade %<>% mutate(trade = export_cons_2015 + import_cons_2015,
+                  total_trade = total_export_cons_2015 + total_import_cons_2015)
 ```
 
-Let's visualize the trade volume over time.
+Let's visualize the inflation-adjusted trade volume over time.
 
-```{r trade_volume, fig.cap = "Korea's Trade Volume (in billion $)", out.width="900"}
+```{r trade_volume, fig.cap = "Korea's Trade Volume (in billion 2015 Constant USD)", out.width="900"}
 
 trade_years <- trade %>% group_by(year) %>%
   summarise(total_trade_group_by = sum(trade, na.rm = T),
-            total_export_group_by = sum(export, na.rm = T),
-            total_import_group_by = sum(import, na.rm = T))
+            total_export_group_by = sum(export_cons_2015, na.rm = T),
+            total_import_group_by = sum(import_cons_2015, na.rm = T))
 
 trade %<>% left_join(trade_years, by = "year")
 
