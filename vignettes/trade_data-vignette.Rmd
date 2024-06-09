@@ -208,7 +208,7 @@ trade_decade %>% filter(iso3c %in% top10) %>%
   scale_color_brewer(palette = "RdBu") +
   theme(legend.position = "none") +
   labs(title = "Ranking of Korea's Trading Partners",
-       x = "Decade",
+       x = "Year",
        y = "Rank")
 
 ggsave("trade_ranking.png", width = 10, height = 6, dpi = 300)
