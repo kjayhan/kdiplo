@@ -76,3 +76,33 @@
 #' @source \url{https://correlatesofwar.org/data-sets/bilateral-trade/}
 #'
 "trade_data"
+
+
+#' South and North Korea's Diplomatic Ties Data
+#'
+#' @description \code{diplo_ties_data} provides information on South and North Korea's diplomatic relationships with other countries over time. The dataset includes status of diplomatic ties, and key dates such as when ties were cut or reestablished.
+#'
+#' @return Returns a dataframe of South and North Korea's diplomatic ties in a country-year format.
+#'
+#' @format A data frame with 11 variables:
+#' \describe{
+#' \item{iso3c}{A character vector of ISO 3166-1 alpha-3 country codes.}
+#' \item{iso2c}{A character vector of ISO 3166-1 alpha-2 country codes.}
+#' \item{country}{A character vector of country names.}
+#' \item{country_kr}{A character vector of country names in Korean.}
+#' \item{south_north}{A character vector indicating South or North Korea's diplomatic status with the country. It can be "South Korea" or "North Korea"}
+#' \item{year}{A numeric vector indicating the year of the record.}
+#' \item{date}{A date vector indicating the date of the establishment of diplomatic ties.}
+#' \item{diplomatic_ties}{A logical or binary indicator showing whether diplomatic ties were active (1 = have diplomatic ties; 0 = no diplomatic ties).}
+#' \item{cut_date}{A date vector indicating when diplomatic ties were cut, if applicable.}
+#' \item{reestablish_date}{A date vector indicating when diplomatic ties were reestablished, if applicable.}
+#' \item{updated_at}{A date vector indicating the last update date of the data.}
+#' }
+#'
+#' @docType data
+#' @keywords datasets
+#' @name diplo_ties_data
+#'
+#' @source \url{https://www.mofa.go.kr/www/wpge/m_4181/contents.do}
+#' @source \url{https://ayhan.phd/blog/ko/2024-02-14%20South%20and%20North%20Korea's%20Diplomatic%20Ties/}
+#' @source \url{https://ayhan.phd/apps/Diplomatic%20Competition%20between%20the%20Two%20Koreas/}
