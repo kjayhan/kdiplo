@@ -35,7 +35,7 @@ table <- tibble::tribble(
   "Korean presidents' high-level diplomatic visits", "Korean presidents' bilateral, multilateral, and informal diplomatic visits between 1948 and 2023, details about the visits including dates, reasons, type of visit etc.", "Complete", "Coming soon",
   "Inward high-level diplomatic visits", "Foreign leaders’ bilateral, multilateral, and informal diplomatic visits to Korea between 2000 and 2023, details about the visits including dates, the visitor's office and status at home etc.", "Complete", "Coming soon",
   "Other Korean high-level diplomatic visits", "Korean prime ministers and foreign ministers' bilateral, multilateral, and informal diplomatic visits between 2000 and 2023", "Complete", "Coming soon",
-  "Diplomatic ties", "The status of South and North Korea’s diplomatic ties with other countries in panel data format", "Complete", "Coming soon",
+  "Diplomatic ties", "The status of South and North Korea’s diplomatic ties with other countries in panel data format", "Complete", "Uploaded",
   "Korean diplomatic missions abroad", "Korean diplomatic missions' (embassies and consulates) geolocations", "Complete", "Coming soon",
   "Overseas Koreans", "The numbers of overseas Koreans’ populations in other countries in panel data format", "Complete", "Coming soon",
   "Trade", "Korea’s export to and import from respective countries in panel data format", "Complete", "Uploaded",
@@ -70,4 +70,4 @@ devtools::install_github("kjayhan/kdiplo")
 
 When using the `kdiplo` package please cite the following:
 
--   Ayhan, Kadir Jun (2024). kdiplo: Datasets and Tools to Analyze Korean Diplomacy. R package version `r paste0("'", utils::packageVersion("kdiplo"), "'")`
+-   Ayhan, Kadir Jun (2025). kdiplo: Datasets and Tools to Analyze Korean Diplomacy. R package version `r paste0("'", utils::packageVersion("kdiplo"), "'")`
