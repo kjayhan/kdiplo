@@ -1,48 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>/articles/iso3c_kr-vignette.html</loc>
-  </url>
-  <url>
-    <loc>/articles/trade_data-vignette.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/iso3c_data.html</loc>
-  </url>
-  <url>
-    <loc>/reference/iso3c_kr.html</loc>
-  </url>
-  <url>
-    <loc>/reference/kdiplo-package.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pipe.html</loc>
-  </url>
-  <url>
-    <loc>/reference/trade_data.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://kdiplo.com/404.html</loc></url>
+<url><loc>https://kdiplo.com/LICENSE-text.html</loc></url>
+<url><loc>https://kdiplo.com/LICENSE.html</loc></url>
+<url><loc>https://kdiplo.com/articles/index.html</loc></url>
+<url><loc>https://kdiplo.com/articles/iso3c_kr-vignette.html</loc></url>
+<url><loc>https://kdiplo.com/articles/trade_data-vignette.html</loc></url>
+<url><loc>https://kdiplo.com/authors.html</loc></url>
+<url><loc>https://kdiplo.com/index.html</loc></url>
+<url><loc>https://kdiplo.com/news/index.html</loc></url>
+<url><loc>https://kdiplo.com/reference/index.html</loc></url>
+<url><loc>https://kdiplo.com/reference/iso3c_data.html</loc></url>
+<url><loc>https://kdiplo.com/reference/iso3c_kr.html</loc></url>
+<url><loc>https://kdiplo.com/reference/kdiplo-package.html</loc></url>
+<url><loc>https://kdiplo.com/reference/pipe.html</loc></url>
+<url><loc>https://kdiplo.com/reference/trade_data.html</loc></url>
 </urlset>
+
