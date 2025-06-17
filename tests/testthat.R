@@ -8,5 +8,6 @@
 
 library(testthat)
 library(kdiplo)
+library(readr)
 
 test_check("kdiplo")

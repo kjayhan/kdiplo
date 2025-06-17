@@ -12,5 +12,6 @@
 #'    \url{https://ayhan.phd/}
 #'    \url{https://github.com/kjayhan/kdiplo}
 #' @docType _PACKAGE
+
 #' @keywords package
 NULL
