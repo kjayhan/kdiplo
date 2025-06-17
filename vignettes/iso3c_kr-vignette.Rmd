@@ -29,7 +29,7 @@ Sometimes the Korean government sources have overlapping data for Yugoslavia and
 For example, the following is sample Korean trade data from [Korean Statistical Information Service (KOSIS)](https://kosis.kr/statHtml/statHtml.do?orgId=360&tblId=DT_1R11006_FRM101&conn_path=I3):
 
 ```{r}
-trade <- read_xlsx(here::here("../korea_visits/data/kosis_trade_240330.xlsx"))
+trade <- read_xlsx("../../korea_visits/data/kosis_trade_240330.xlsx")
 
 trade[533:538,c(1,57:62)] %>% gt::gt()
 
@@ -39,7 +39,7 @@ And, the following is sample Korean aid data from [Korea's ODA portal](https://s
 
 ```{r}
 
-aid <- read_xlsx(here::here("../covid determinants 220818/data/korea_total_aid_2019_230709.xlsx"))
+aid <- read_xlsx("../../covid determinants 220818/data/korea_total_aid_2019_230709.xlsx")
 
 
 aid %<>% select(1:5)
