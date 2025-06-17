@@ -17,15 +17,19 @@ BugReports: https://github.com/kjayhan/kdiplo/issues
 Depends: 
     R (>= 3.5)
 Imports:
+    magrittr,
+    dplyr,
     stats,
-    readxl,
-    tidyverse,
 LazyData: true
 Suggests:
     rmarkdown,
     knitr,
     spelling,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    here,
+    readxl,
+    readr,
+    tidyverse,
 Config/testthat/edition: 3
 Language: en-US
 VignetteBuilder: 
