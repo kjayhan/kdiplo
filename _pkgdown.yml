@@ -14,5 +14,5 @@ template:
   includes:
     in_header:
       <script defer data-domain="https://kdiplo.com" src="https://plausible.io/js/plausible.js"></script>
-development:
-  mode: auto
+# development:
+#   mode: auto

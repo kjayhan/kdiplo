@@ -21,6 +21,7 @@ Imports:
     magrittr,
     stats,
     readr,
+    read_xlsx,
 LazyData: true
 Suggests:
     rmarkdown,
