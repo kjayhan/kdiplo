@@ -17,11 +17,9 @@ BugReports: https://github.com/kjayhan/kdiplo/issues
 Depends: 
     R (>= 3.5)
 Imports:
-    dplyr,
-    magrittr,
     stats,
-    readr,
-    read_xlsx,
+    readxl,
+    tidyverse,
 LazyData: true
 Suggests:
     rmarkdown,
