@@ -20,9 +20,9 @@ Imports:
     dplyr,
     magrittr,
     stats,
-    readr,
 LazyData: true
 Suggests:
+    readr,
     rmarkdown,
     knitr,
     spelling,
@@ -31,3 +31,4 @@ Config/testthat/edition: 3
 Language: en-US
 VignetteBuilder: 
     knitr
+Config/Needs/website: rmarkdown

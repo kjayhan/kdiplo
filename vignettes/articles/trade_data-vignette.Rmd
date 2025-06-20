@@ -1,0 +1,14 @@
+---
+title: "trade_data-vignette"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(kdiplo)
+```

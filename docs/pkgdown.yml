@@ -2,9 +2,9 @@ pandoc: '3.4'
 pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
-  iso3c_kr-vignette: iso3c_kr-vignette.html
-  trade_data-vignette: trade_data-vignette.html
-last_built: 2025-06-20T02:12Z
+  articles/iso3c_kr-vignette: iso3c_kr-vignette.html
+  articles/trade_data-vignette: trade_data-vignette.html
+last_built: 2025-06-20T02:53Z
 urls:
   reference: https://kdiplo.com/reference
   article: https://kdiplo.com/articles

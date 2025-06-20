@@ -106,3 +106,4 @@
 #' @source \url{https://www.mofa.go.kr/www/wpge/m_4181/contents.do}
 #' @source \url{https://ayhan.phd/blog/ko/2024-02-14%20South%20and%20North%20Korea's%20Diplomatic%20Ties/}
 #' @source \url{https://ayhan.phd/apps/Diplomatic%20Competition%20between%20the%20Two%20Koreas/}
+"diplo_ties_data"

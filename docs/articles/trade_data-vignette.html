@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Korea's Trade Data Vignette • kdiplo</title>
+<title>trade_data-vignette • kdiplo</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Korea's Trade Data Vignette">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="trade_data-vignette">
 <script defer data-domain="https://kdiplo.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -34,8 +34,8 @@
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/iso3c_kr-vignette.html">iso3c_kr Vignette</a></li>
-    <li><a class="dropdown-item" href="../articles/trade_data-vignette.html">Korea's Trade Data Vignette</a></li>
+<li><a class="dropdown-item" href="../articles/iso3c_kr-vignette.html">iso3c_kr-vignette</a></li>
+    <li><a class="dropdown-item" href="../articles/trade_data-vignette.html">trade_data-vignette</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -58,162 +58,18 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1>Korea's Trade Data Vignette</h1>
-                        <h4 data-toc-skip class="author">Kadir Jun
-Ayhan</h4>
+      <h1>trade_data-vignette</h1>
             
-            <h4 data-toc-skip class="date">2024-04-24</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/kjayhan/kdiplo/blob/HEAD/vignettes/trade_data-vignette.Rmd" class="external-link"><code>vignettes/trade_data-vignette.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/kjayhan/kdiplo/blob/HEAD/vignettes/articles/trade_data-vignette.Rmd" class="external-link"><code>vignettes/articles/trade_data-vignette.Rmd</code></a></small>
       <div class="d-none name"><code>trade_data-vignette.Rmd</code></div>
     </div>
 
     
     
-<p>Since the foundation of the Republic of Korea in 1948, the economy
-has been one of the two pillars of Korean diplomacy, alongside
-security.<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;Korea added “public diplomacy” as a &lt;a href=&quot;https://ayhan.phd/research/chapters/2016%20Introduction%20-%20Korea's%20PD/&quot; class=&quot;external-link&quot;&gt;third
-pillar of diplomacy in 2010&lt;/a&gt;.&lt;/p&gt;"><sup>1</sup></a> Indeed, the country’s trade has virtually
-always been over 50% of its GDP since 1970s, reaching over 100% in
-2010s.</p>
-<div class="figure">
-<img src="trade_data-vignette_files/figure-html/trade_gdp-1.png" alt="Trade as % of GDP in Korea" width="900"><p class="caption">
-Trade as % of GDP in Korea
-</p>
-</div>
-<p>Source: <a href="https://github.com/vincentarelbundock/WDI" class="external-link">WDI</a></p>
-<p>Therefore, Korea’s trade constitute an important data source for
-studies on Korean diplomacy. In this blog post, I will explore the trade
-data in the <a href="https://github.com/kjayhan/kdiplo" class="external-link"><code>kdiplo</code></a> R
-package. There are two main sources for the data.</p>
-<ol style="list-style-type: decimal">
-<li><p><a href="https://kosis.kr/statHtml/statHtml.do?orgId=360&amp;tblId=DT_1R11006_FRM101&amp;conn_path=I3" class="external-link">Korean
-Statistical Information Service (KOSIS)</a> which has Korea’s trade data
-from 1965 until 2023 with countries and regions.</p></li>
-<li><p><a href="https://correlatesofwar.org/data-sets/bilateral-trade/" class="external-link">Correlates
-of War (COW)’s Trade Data v4.0</a> which Korea’s trade data from 1949
-until 2014.</p></li>
-</ol>
-<p>In the trade data in the <a href="https://github.com/kjayhan/kdiplo" class="external-link"><code>kdiplo</code></a>
-package, I share both sets of data (export_kosis and import_kosis
-referring to export and import data from KOSIS; export_cow and
-import_cow referring to export and import data from COW) as well as
-mutated export and import variables that rely mainly on KOSIS data, but
-imputing it with the COW data where the former is missing. While in my
-own research, I use other ways to impute the still missing data, in the
-<a href="https://github.com/kjayhan/kdiplo" class="external-link"><code>kdiplo</code></a>
-package, I don’t do that, leaving it to the users’ discretion.</p>
-<p>Let’s explore Korea’s trade data in the <a href="https://github.com/kjayhan/kdiplo" class="external-link"><code>kdiplo</code></a>
-package.</p>
-<p>I have not yet created a function to get the data from the package,
-but one can simply get the data and assign it to an object. This is what
-the dataset looks like:</p>
-<pre><code><span><span class="co">## Rows: 16,511</span></span>
-<span><span class="co">## Columns: 18</span></span>
-<span><span class="co">## $ iso3c                  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ABW"<span style="color: #949494;">, </span>"ABW"<span style="color: #949494;">, </span>"ABW"<span style="color: #949494;">, </span>"ABW"<span style="color: #949494;">, </span>"ABW"<span style="color: #949494;">, </span>"ABW"<span style="color: #949494;">, </span>"ABW"…</span></span>
-<span><span class="co">## $ country                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Aruba"<span style="color: #949494;">, </span>"Aruba"<span style="color: #949494;">, </span>"Aruba"<span style="color: #949494;">, </span>"Aruba"<span style="color: #949494;">, </span>"Aruba"<span style="color: #949494;">, </span>"A…</span></span>
-<span><span class="co">## $ year                   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1965<span style="color: #949494;">, </span>1966<span style="color: #949494;">, </span>1967<span style="color: #949494;">, </span>1968<span style="color: #949494;">, </span>1969<span style="color: #949494;">, </span>1970<span style="color: #949494;">, </span>1971<span style="color: #949494;">, </span>1972<span style="color: #949494;">,</span>…</span></span>
-<span><span class="co">## $ export                 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">,</span>…</span></span>
-<span><span class="co">## $ import                 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">,</span>…</span></span>
-<span><span class="co">## $ total_export           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 175082000<span style="color: #949494;">, </span>250334000<span style="color: #949494;">, </span>320229000<span style="color: #949494;">, </span>455400000<span style="color: #949494;">, </span>622…</span></span>
-<span><span class="co">## $ total_import           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 463442000<span style="color: #949494;">, </span>716441000<span style="color: #949494;">, </span>996246000<span style="color: #949494;">, </span>1462873000<span style="color: #949494;">, </span>18…</span></span>
-<span><span class="co">## $ export_kosis           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">,</span>…</span></span>
-<span><span class="co">## $ import_kosis           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">,</span>…</span></span>
-<span><span class="co">## $ export_cow             <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">,</span>…</span></span>
-<span><span class="co">## $ import_cow             <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">,</span>…</span></span>
-<span><span class="co">## $ index                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 52.9<span style="color: #949494;">, </span>54.4<span style="color: #949494;">, </span>56.1<span style="color: #949494;">, </span>58.3<span style="color: #949494;">, </span>60.9<span style="color: #949494;">, </span>63.9<span style="color: #949494;">, </span>66.7<span style="color: #949494;">, </span>68.7<span style="color: #949494;">,</span>…</span></span>
-<span><span class="co">## $ cpi                    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0.1516194<span style="color: #949494;">, </span>0.1559186<span style="color: #949494;">, </span>0.1607911<span style="color: #949494;">, </span>0.1670966<span style="color: #949494;">, </span>0.1…</span></span>
-<span><span class="co">## $ export_cons_2015       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">,</span>…</span></span>
-<span><span class="co">## $ import_cons_2015       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">,</span>…</span></span>
-<span><span class="co">## $ total_export_cons_2015 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1154746877<span style="color: #949494;">, </span>1605542879<span style="color: #949494;">, </span>1991584636<span style="color: #949494;">, </span>2725369811<span style="color: #949494;">,</span>…</span></span>
-<span><span class="co">## $ total_import_cons_2015 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 3056614628<span style="color: #949494;">, </span>4594968105<span style="color: #949494;">, </span>6195904267<span style="color: #949494;">, </span>8754655055<span style="color: #949494;">,</span>…</span></span>
-<span><span class="co">## $ updated_at             <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2024-04-27<span style="color: #949494;">, </span>2024-04-27<span style="color: #949494;">, </span>2024-04-27<span style="color: #949494;">, </span>2024-04-27…</span></span></code></pre>
-<div class="section level2">
-<h2 id="trends-in-koreas-trade-volume-over-time">Trends in Korea’s Trade Volume over Time<a class="anchor" aria-label="anchor" href="#trends-in-koreas-trade-volume-over-time"></a>
-</h2>
-<p>Let’s mutate the trade volume as the sum of exports and imports, and
-the total trade volume as the sum of total exports and total
-imports.</p>
-<p>Let’s visualize the inflation-adjusted trade volume over time.</p>
-<div class="figure">
-<img src="trade_data-vignette_files/figure-html/trade_volume-1.png" alt="Korea's Trade Volume (in billion 2015 Constant USD)" width="900"><p class="caption">
-Korea’s Trade Volume (in billion 2015 Constant USD)
-</p>
-</div>
-<p>There is this myth that Korea’s economic development was all thanks
-to Park Chung-hee’s economic development plans which built on <a href="https://www.much.go.kr/en/contents.do?fid=03&amp;cid=03_7" class="external-link">export-led
-industrialization</a>. Although we cannot deny his influence on Korea’s
-industrialization and economic growth, but Korea’s trade volume has
-grown exponentially since the 1990s following the country’s
-liberalization and democratization.</p>
-<div class="figure">
-<img src="trade_data-vignette_files/figure-html/fig-gdp_growth-1.png" alt="Korea's GDP Growth Rate" width="900"><p class="caption">
-Korea’s GDP Growth Rate
-</p>
-</div>
-<p>Source: <a href="https://github.com/vincentarelbundock/WDI" class="external-link">WDI</a></p>
-</div>
-<div class="section level2">
-<h2 id="trade-dependence">Trade Dependence<a class="anchor" aria-label="anchor" href="#trade-dependence"></a>
-</h2>
-<p>We live at an age of increasing great power rivalry in the
-Indo-Pacific region, even this relatively new geopolitical naming of the
-region causing controversies with China. For quite a long time, region’s
-two great powers, China and Japan, outsourced <a href="https://www.jstor.org/stable/48615950" class="external-link">great power management</a>
-<a href="https://academic.oup.com/book/5050" class="external-link">to the United States and
-ASEAN</a>. However, in recent years with <a href="https://academic.oup.com/cjip/article/7/2/153/438673" class="external-link">growing
-assertiveness of Chinese foreign policy</a> and the <a href="https://www.jstor.org/stable/i40179543" class="external-link">US’s pivot to Asia</a>,
-the region has seen the rise of <a href="https://asiasociety.org/policy-institute/are-minilaterals-new-multilateral-indo-pacific-0" class="external-link">US-centric
-minilateralisms</a> that one way or another encircle China. For long,
-Korea, despite its iron-clad alliance with the US, has not taken an
-active part in most of these minilateralisms to avoid antagonizing
-China. Often two reasons are cited for this: 1) Korea’s economic
-dependence on China, and 2) China’s influence on North Korea, hence
-Korean Peninsula.</p>
-<p>Let’s visualize Korea’s trade dependence over time.</p>
-<div class="figure">
-<img src="trade_data-vignette_files/figure-html/fig-trade_dependence-1.png" alt="Korea's Trade Dependence with China, US, Japan, and Vietnam" width="900"><p class="caption">
-Korea’s Trade Dependence with China, US, Japan, and Vietnam
-</p>
-</div>
-<p>China has surpassed Japan and the United States as Korea’s largest
-trading partner since the mid-2000s. Before COVID-19, China’s share in
-Korea’s trade reached 25%, declining since then to just above 20%, but
-still remaining as the largest trading partner. The US’s share in
-Korea’s trade is around 15%, while Japan and Vietnam’s share has been 6%
-each. The following is the ranking of Korea’s trading partners since its
-foundation. Below, I visualize the rankings of Korea’s trading partners
-over time.</p>
-<div class="figure">
-<img src="trade_data-vignette_files/figure-html/fig-trade_ranking-1.png" alt="Ranking of Korea's Trading Partners: 1940s to 2020s" width="900"><p class="caption">
-Ranking of Korea’s Trading Partners: 1940s to 2020s
-</p>
-</div>
-</div>
-<div class="section level2">
-<h2 id="concluding-remarks">Concluding Remarks<a class="anchor" aria-label="anchor" href="#concluding-remarks"></a>
-</h2>
-<p>Korea’s trade data is an important source for studies on Korean
-diplomacy, helping us understand trends and tendencies in Korean foreign
-policy. In this blog post, I explored the trade data in the <a href="https://github.com/kjayhan/kdiplo" class="external-link"><code>kdiplo</code></a> R
-package. I visualized the trade volume over time, Korea’s trade
-dependence, and the rankings of Korea’s trading partners over time. The
-data is available in the <a href="https://github.com/kjayhan/kdiplo" class="external-link"><code>kdiplo</code></a>
-package. In the next blog post, I will explore Korea’s economic
-diplomacy bringing together the trade data with my other data on Korean
-presidents’ bilateral diplomatic visits. Feel free to add comments next
-to this blog post, or make requests using the issues tab in the <a href="https://github.com/kjayhan/kdiplo/issues" class="external-link"><code>kdiplo</code>
-package’s Github</a>.</p>
-<p>In line with my <a href="https://ayhan.phd/blog/2024-03-26%20kdiplo/" class="external-link">post here</a>, I
-invite you to explore and interact with this data. Let’s craft stories
-together using these datasets and connect through hashtags <a href="https://www.linkedin.com/feed/hashtag/?keywords=kdiplo" class="external-link"><code>#kdiplo</code></a>,
-<a href="https://www.linkedin.com/feed/hashtag/?keywords=kdiploviz" class="external-link">#kdiploviz</a>,
-<a href="https://www.linkedin.com/feed/hashtag/?keywords=kdata" class="external-link"><code>#kdata</code></a>,
-and <a href="https://www.linkedin.com/feed/hashtag/?keywords=kdiplo" class="external-link">#kdataviz</a>.</p>
-</div>
-
-  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
-    </nav></aside>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/kjayhan/kdiplo" class="external-link">kdiplo</a></span><span class="op">)</span></span></code></pre></div>
+  </main>
 </div>
 
 
