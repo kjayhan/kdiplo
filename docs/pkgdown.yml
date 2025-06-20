@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   articles/iso3c_kr-vignette: iso3c_kr-vignette.html
   articles/trade_data-vignette: trade_data-vignette.html
-last_built: 2025-06-20T02:55Z
+last_built: 2025-06-20T02:59Z
 urls:
   reference: https://kdiplo.com/reference
   article: https://kdiplo.com/articles
