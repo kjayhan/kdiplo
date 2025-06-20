@@ -30,11 +30,9 @@ globalVariables(c("country_kr", "iso3c_kr"))
 #' }
 
 
-library(tidyverse)
-
 iso3c_kr <- function(df, country_kr) {
   iso3c_data <- kdiplo::iso3c_data
-  df <- df %>%
+  df <- df |>
     dplyr::left_join(iso3c_data, by = stats::setNames("country_kr", country_kr))
   return(df)
 }

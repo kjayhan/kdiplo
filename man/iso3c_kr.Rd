@@ -3,6 +3,9 @@
 \name{iso3c_kr}
 \alias{iso3c_kr}
 \title{Converting Korean-language Country Names into iso3c Country Codes}
+\usage{
+iso3c_kr(df, country_kr)
+}
 \arguments{
 \item{df}{A character vector of source dataframe name.}
 
