@@ -14,5 +14,36 @@ template:
   includes:
     in_header:
       <script defer data-domain="https://kdiplo.com" src="https://plausible.io/js/plausible.js"></script>
+
+articles:
+
+- title: "Vignette"
+  navbar: "Vignette"
+  contents:
+  - articles/iso3c_kr-vignette
+  #- articles/trade_data-vignette
+
+- title: "Blog Posts"
+  navbar: "Blog Posts"
+  contents:
+  - diplomatic_ties_vignette
+  - trade_data_vignette
+
+external-articles:
+
+  - name: diplomatic_ties_vignette
+    title: "South and North Korea’s Diplomatic Ties: From One Korea Policy to Simultaneous Recognition"
+    description: "Diplomatic Competition between South and North Korea in Numbers"
+    href: https://ayhan.phd/blog/ko/2024-02-14%20South%20and%20North%20Korea's%20Diplomatic%20Ties/
+
+  - name: trade_data_vignette
+    title: "Exploring Korean Trade Data on `kdiplo` R Package"
+    description: "Exploring Korean Trade Data on `kdiplo` R Package"
+    href: https://ayhan.phd/blog/ko/2024-04-23%20Korean%20Trade%20Data/
+
+
+# maybe move trade data to this blog post: https://ayhan.phd/blog/ko/2024-04-23%20Korean%20Trade%20Data/
+
+
 # development:
 #   mode: auto
